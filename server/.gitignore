@@ -1,0 +1,6 @@
+node_modules
+.env
+
+# git remote add origin git@github.com:filatei/fiafia-server.git
+# git branch -M main
+# git push -u origin main

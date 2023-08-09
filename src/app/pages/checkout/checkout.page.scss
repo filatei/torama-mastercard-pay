@@ -1,0 +1,21 @@
+.header-row {
+  font-weight: bold;
+}
+
+.name-label,
+.price-label,
+.quantity-label,
+.total-price-label {
+  text-align: center;
+}
+
+.total-row {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+ion-input[type="number"] {
+  width: 100%; /* Makes sure the input takes the full width of the column */
+  background-color: var(--ion-color-dark);
+  color: var(--ion-color-light);
+}

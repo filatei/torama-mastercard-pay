@@ -1,0 +1,94 @@
+<ion-header slot>
+  <ion-toolbar>
+    <ion-button (click)="closeModal()" slot="start" fill="clear">Cancel</ion-button>
+
+    <ion-title>{{ newExpense.id ? 'Update' : 'New' }} Expense</ion-title>
+    <ion-button (click)="updateExpense()" slot="end" fill="clear">{{ newExpense.id ? 'Update' : 'Add' }}</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item-group class="ion-margin-vertical">
+
+    <ion-item-divider>
+      <ion-label>Contact Information</ion-label>
+    </ion-item-divider>
+    <ion-item class="text-medium item-input ion-margin-horizontal" lines="none">
+      <ion-input type="email" [placeholder]="'Enter Your Email Here'">
+      </ion-input>
+    </ion-item>
+
+
+    <ion-item-divider>
+      <ion-label>Merchant</ion-label>
+    </ion-item-divider>
+    <ion-item class="text-medium item-input ion-margin-horizontal" lines="none">
+      <ion-input placeholder="Enter Name" [(ngModel)]="newExpense.merchant"></ion-input>
+    </ion-item>
+
+    <!-- <ion-item class="text-medium item-input ion-margin-horizontal" lines="none">
+      <ion-item-divider>
+        <ion-label>Date</ion-label>
+      </ion-item-divider>
+      <ion-datetime-button datetime="expense-datetime"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="expense-datetime" presentation="date" [(ngModel)]="newExpense.date"></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+
+    <ion-item class="text-medium item-input ion-margin-horizontal" lines="none">
+      <ion-item-divider>
+        <ion-label>Cost ($)</ion-label>
+      </ion-item-divider>
+      <div>
+        <ion-input placeholder="0.00" type="number" [(ngModel)]="newExpense.cost" slot></ion-input>
+      </div>
+    </ion-item> -->
+
+    <!-- <ion-item class="ion-border ion-margin">
+      <ion-item-divider>
+        <ion-label>Category</ion-label>
+      </ion-item-divider>
+      <ion-select role="combobox" placeholder="Select One" [(ngModel)]="newExpense.category" slot>
+        <ion-select-option value="Office">Office Expense</ion-select-option>
+        <ion-select-option value="Parking">Parking</ion-select-option>
+        <ion-select-option value="Recruiting">Recruiting</ion-select-option>
+        <ion-select-option value="Shipping">Shipping</ion-select-option>
+        <ion-select-option value="Software">Software</ion-select-option>
+        <ion-select-option value="Travel - Airfare">Travel - Airfare</ion-select-option>
+        <ion-select-option value="Travel - Hotel">Travel - Hotel</ion-select-option>
+        <ion-select-option value="Travel - Meals">Travel - Meals</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+
+
+  </ion-item-group>
+<!-- 
+  <ion-list-header>
+    <ion-label color="ios-lh-labl-gray">Details</ion-label>
+  </ion-list-header>
+  <ion-list>
+
+    <ion-item slot lines="full" class="ion-border ion-margin">
+      <ion-label>Notes</ion-label>
+      <ion-input fill="solid" placeholder="Additional details..." [(ngModel)]="newExpense.note" slot></ion-input>
+    </ion-item>
+  </ion-list> -->
+  <ion-list-header>
+    <ion-label color="ios-lh-labl-gray">Upload Receipt</ion-label>
+  </ion-list-header>
+
+  <img [src]="safeReceipt" (click)="selectImageSource()" *ngIf="safeReceipt" tappable />
+  <ion-icon name="document" *ngIf="!safeReceipt"></ion-icon>
+  <input type="file" #imagePicker enctype="multipart/form-data" (change)="uploadFile($event)" hidden="true"
+    accept="image/* .xlsx .xls" />
+
+  <ion-fab horizontal="center" vertical="bottom">
+    <ion-fab-button (click)="selectImageSource()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

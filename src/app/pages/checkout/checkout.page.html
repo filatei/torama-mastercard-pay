@@ -1,0 +1,41 @@
+  <ion-content [fullscreen]="true">
+    <ion-grid>
+      <ion-row class="header-row">
+        <ion-col size="3" class="name-label">Name</ion-col>
+        <ion-col size="3" class="price-label">Price</ion-col>
+        <ion-col size="2" class="quantity-label">Qty</ion-col>
+        <ion-col size="3" class="total-price-label">Total</ion-col>
+      </ion-row>
+      <ion-row *ngIf="!(cartItems$|async)?.length" class="ion-justify-content-center" >
+        <ion-col size="5" class="ion-margin">
+          No items in cart
+        </ion-col>
+
+      </ion-row>
+      <ion-row *ngFor="let item of cartItems$|async">
+        <ion-col size="3"  class="name-label">{{item?.name}}</ion-col>
+        <ion-col size="3" class="price-label">{{item?.price | currency:'₦'}}</ion-col>
+        <ion-col size="2" class="quantity-label">
+          <ion-input type="number" [(ngModel)]="item.quantity"></ion-input>
+        </ion-col>
+        <ion-col size="3"  class="total-price-label">{{item?.price * item?.quantity | currency:'₦'}}</ion-col>
+      </ion-row>
+      <ion-row class="total-row">
+        <ion-col size="8" class="total-price-label">Total:</ion-col>
+        <ion-col size="4">{{getTotalPrice() | currency:'₦'}}</ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col size="12">
+        <!-- <src-button card-brands="mastercard visa"> </src-button> -->
+          <div id="embed-target"> </div>
+          <ion-button (click)="showEmbeddedPage()" color="primary">Pay with Embedded Page</ion-button>
+          <!-- <ion-button (click)="showPaymentPage()">Pay with Payment Page</ion-button> -->
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </ion-content>

@@ -1,0 +1,17 @@
+ion-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+
+    
+  }
+  
+  ion-card img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain; // Ensures that the image is contained within its aspect ratio
+    max-height: 150px; // Adjust this value as per your desired height
+  }
+  
+  

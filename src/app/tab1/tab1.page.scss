@@ -1,0 +1,28 @@
+ion-item, ion-input, ion-select, ion-icon {
+    --background: var(--ion-color-light); /* Set the background color of the input areas */
+    --color: var(--ion-color-dark); /* Set the text color of the input areas */
+    --border-color: #3d3a3a; /* Set the border color of the input areas */
+    --highlight-color-invalid: #f00; /* Set the highlight color for invalid input */
+    --highlight-color-valid: rgb(17, 72, 17); /* Set the highlight color for valid input */
+    // border: 1px;
+    // border-color: #0f0;
+  }
+
+
+  ion-grid {
+    background: #fff;
+  }
+  
+  .item-input {
+    --border-color: var(--ion-color-medium);
+    --border-style: solid;
+    --border-width: 1px !important;
+  }
+  
+  @media (max-width: 991px) {
+  
+    ion-grid,
+    ion-grid>ion-row>ion-col {
+      padding: 0 !important;
+    }
+  }
